@@ -17,15 +17,18 @@ class Validation:
     def validate(self, values):
         values = values.dict()
         
-        error = None
+        errors = {}
         for key in self.constraints:
             for contraint in self.constraints[key]:
                 error = contraint.validate(values[key])
 
                 if error:
-                    return  key + " : " + error
-        return error
-    
+                    if key in errors:
+                        errors[key].append(error)
+                    else:
+                        errors[key] = [error]
+
+        return errors if errors else None    
     
 class ConstraintsList:
 

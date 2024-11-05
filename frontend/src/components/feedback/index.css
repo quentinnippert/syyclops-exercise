@@ -1,0 +1,19 @@
+.error {
+    font-family: 'Popins', sans-serif;
+    color: #FF4D4D;
+}
+
+.icerr-sm {
+    width: 15px;
+    height: 15px;
+}
+
+.icerr-md {
+    width: 20px;
+    height: 20px;
+}
+
+.icerr-lg {
+    width: 25px;
+    height: 25px;
+}

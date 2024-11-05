@@ -1,0 +1,83 @@
+.button-container {
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    width: 100px;
+    border-radius: 4px;
+}
+
+.btn-md {
+    padding: 0.5rem 1.5rem;
+    width: 150px;
+    border-radius: 5px;
+}
+
+.btn-lg {
+    padding: 0.5rem 2rem;
+    width: 200px;
+    border-radius: 7px;
+}
+
+.primary {
+    background-color: #D76D3A;
+}
+
+.primary:hover {
+    background-color: #DC5A27;
+}
+
+.icon-button {
+    background-color: #D76D3A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    padding: 5px;
+    transition: background-color 0.3s;
+}
+
+.icon-button:hover {
+    background-color: #DC5A27;
+}
+
+.ic-sm {
+    width: 20px;
+    height: 20px;
+}
+
+.ic-md {
+    width: 25px;
+    height: 25px;
+}
+
+.ic-lg {
+    width: 30px;
+    height: 30px;
+}
+
+.ibtn-sm {
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+}
+
+.ibtn-md {
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+}
+
+.ibtn-lg {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+}

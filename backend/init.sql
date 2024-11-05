@@ -30,11 +30,11 @@ CREATE TABLE IF NOT EXISTS users (
 COMMENT ON COLUMN users.status IS '0: inactive, 1: active, 2: archived, 3: waiting for approval';
 
 -- Insert data
-INSERT INTO genders (name, status, created_at)
+INSERT INTO genders (id, name, status, created_at)
     VALUES
-    ('male', true, NOW() AT TIME ZONE 'utc'),
-    ('female', true, NOW() AT TIME ZONE 'utc'),
-    ('other', true, NOW() AT TIME ZONE 'utc');
+    (1, 'male', true, NOW() AT TIME ZONE 'utc'),
+    (2, 'female', true, NOW() AT TIME ZONE 'utc'),
+    (3, 'other', true, NOW() AT TIME ZONE 'utc');
 
 INSERT INTO users (first_name, last_name, birth_date, gender_id, email, phone, status, created_at)
     VALUES

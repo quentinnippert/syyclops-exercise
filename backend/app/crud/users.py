@@ -4,7 +4,14 @@ from sqlalchemy import text
 
 def read_active_users() -> list[User]:
     with engine.connect() as connection:
-        result = connection.execute(text("SELECT * FROM users WHERE status = 1 ORDER BY created_at DESC"))
+        result = connection.execute(text("""
+                                         SELECT u.*, g.name AS gender_name
+                                         FROM users u
+                                         INNER JOIN genders g
+                                         ON g.id = u.gender_id
+                                         WHERE u.status = 1
+                                         ORDER BY u.created_at DESC
+                                         """))
         users = [row._mapping for row in result]
 
         return users
@@ -14,7 +21,7 @@ def read_user_by_id(user_id: int) -> User:
         result = connection.execute(text("SELECT * FROM users WHERE id = :id LIMIT 1"), {"id": user_id})
         return result.fetchone()
     
-def update_user(user_id: int, user: UserUpdateBody) -> None:
+def update_user(user_id: int, user: UserUpdateBody) -> User:
     with engine.connect() as connection:
         with connection.begin():
             result = connection.execute(
@@ -28,7 +35,11 @@ def update_user(user_id: int, user: UserUpdateBody) -> None:
                     phone = :phone,
                     last_updated_at = NOW()
                     WHERE id = :id
-                    RETURNING *
+                    RETURNING
+                    *,
+                    (SELECT name
+                    FROM genders
+                    WHERE id = :gender_id) AS gender_name
                     """
                 ),
                 {

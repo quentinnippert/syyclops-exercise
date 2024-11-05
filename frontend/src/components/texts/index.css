@@ -1,0 +1,42 @@
+.paragraph {
+    font-size: 1rem;
+    color: white;
+    font-family: 'Popins', sans-serif;
+}
+
+.p-sm {
+    font-size: 0.8rem;
+}
+
+.p-md {
+    font-size: 1rem;
+}
+
+.p-lg {
+    font-size: 1.2rem;
+}
+
+.custom-label {
+    font-size: 1rem;
+    color: #DBDBDB;
+    font-family: 'Popins', sans-serif;
+    margin: 0 0 0.5rem 0;
+}
+
+.lb-sm {
+    font-size: 0.8rem;
+}
+
+.lb-md {
+    font-size: 1rem;
+}
+
+.lb-lg {
+    font-size: 1.2rem;
+}
+
+.title-2 {
+    font-size: 1.5rem;
+    color: white;
+    font-family: 'Popins', sans-serif;
+}
