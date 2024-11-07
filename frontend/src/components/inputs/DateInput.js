@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import './index.css';
 import Row from '../../layouts/Row';
 import Column from '../../layouts/Column';
@@ -31,6 +31,7 @@ const DateInput = ({ label, value, onChange, className, errors = [] }) => {
                     value={formattedDate}
                     onChange={onChange}
                     placeholder='YYYY-MM-DD'
+                    max={new Date().toISOString().split('T')[0]}
                 />
             </Row>
             {

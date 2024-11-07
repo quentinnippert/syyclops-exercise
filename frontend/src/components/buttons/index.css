@@ -12,18 +12,21 @@
     padding: 0.5rem 1rem;
     width: 100px;
     border-radius: 4px;
+    min-height: 40px;
 }
 
 .btn-md {
     padding: 0.5rem 1.5rem;
     width: 150px;
     border-radius: 5px;
+    min-height: 45px;
 }
 
 .btn-lg {
     padding: 0.5rem 2rem;
     width: 200px;
     border-radius: 7px;
+    min-height: 50px;
 }
 
 .primary {

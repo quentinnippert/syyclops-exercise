@@ -4,16 +4,17 @@ import useUpdateUser from '../hooks/useUpdateUser';
 import useGetGenders from '../../genders/hooks/useGetGenders';
 
 /** Components */
-import Column from '../../../layouts/Column'
 import Row from '../../../layouts/Row'
+import Button from '../../../components/buttons/Button';
+import Column from '../../../layouts/Column'
+import DateInput from '../../../components/inputs/DateInput';
+import SelectInput from '../../../components/inputs/SelectInput';
 
 /** Layouts */
 import TextInput from '../../../components/inputs/TextInput';
 
 import './index.css'
-import SelectInput from '../../../components/inputs/SelectInput';
-import DateInput from '../../../components/inputs/DateInput';
-import Button from '../../../components/buttons/Button';
+import { useToastContext } from '../../../context/ToastContext';
 
 export default function UserUpdateForm({
     onUpdate,
@@ -33,6 +34,8 @@ export default function UserUpdateForm({
         updateUser
     } = useUpdateUser();
 
+    const { showToast } = useToastContext();
+
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -51,6 +54,15 @@ export default function UserUpdateForm({
         }
     }, [user]);
 
+    useEffect(() => {
+        if (errorsUpdate) {
+            showToast({
+                message: 'Error updating user',
+                type: 't-error',
+                labelType: 'p-error'
+            });
+        }
+    }, [errorsUpdate]);
 
     const gendersOptions = useMemo(() => {
         if (genders?.length === 0 || !genders) return []
@@ -115,12 +127,13 @@ export default function UserUpdateForm({
                     errors={errorsUpdate?.birth_date}
                 />
             </Row>
-
             <Row className='gap-1'>
                 <Button
                     label={'Update'}
-                    size='btn-md'
+                    labelSize='p-lg'
+                    size='btn-lg'
                     variant='primary'
+                    loading={updating}
                     onClick={() => {
                         updateUser(
                             user.id,
@@ -134,6 +147,11 @@ export default function UserUpdateForm({
                             },
                             (updatedUser) => {
                                 onUpdate(updatedUser)
+                                showToast({
+                                    message: 'User updated',
+                                    type: 't-success',
+                                    labelType: 'p-success'
+                                })
                             }
                         );
                     }}

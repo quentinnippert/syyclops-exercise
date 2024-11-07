@@ -39,7 +39,7 @@ class ConstraintsList:
                     "last_name":    [NotBlankConstraint(), StringConstraint(1, 255)],
                     "email":        [NotBlankConstraint(), EmailConstraint()],
                     "phone":        [NotBlankConstraint(), PhoneConstraint()],
-                    "birth_date":   [NotBlankConstraint(), DateConstraint(None, datetime.today().strftime("%Y-%m-%d"), "%Y-%m-%d")],
+                    "birth_date":   [NotBlankConstraint(), DateConstraint(None, datetime.today())],
                     "gender_id":    [NotBlankConstraint(), NumberConstraint(1, None)],
                 }
         else:

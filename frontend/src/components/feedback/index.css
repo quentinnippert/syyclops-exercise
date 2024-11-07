@@ -3,6 +3,39 @@
     color: #FF4D4D;
 }
 
+.toast {
+    border-radius: 5px;
+    padding: 0.75rem 1rem;
+    position: fixed;
+    display: none;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    min-width: 200px;
+}
+
+.t-show {
+    display: block;
+}
+
+.t-success {
+    background-color: #d2fad4;
+    color: #0f6b0f;
+    border-left: 4px solid #0f6b0f;
+}
+
+.t-error {
+    background-color: #f5b5b5;
+    color: #7d1010;
+    border-left: 4px solid #7d1010;
+}
+
+.t-warning {
+    background-color: #f7edd0;
+    color: #7d6f10;
+    border-left: 4px solid #7d6f10;
+}
+
 .icerr-sm {
     width: 15px;
     height: 15px;

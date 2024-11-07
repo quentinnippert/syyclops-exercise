@@ -2,6 +2,13 @@
     font-size: 1rem;
     color: white;
     font-family: 'Popins', sans-serif;
+    
+}
+
+.p-exbold {
+    font-weight: 800;
+    font-family: "Poppins", serif;
+    font-style: normal;
 }
 
 .p-sm {
@@ -14,6 +21,18 @@
 
 .p-lg {
     font-size: 1.2rem;
+}
+
+.p-success {
+    color: #0f6b0f;
+}
+
+.p-error {
+    color: #7d1010;
+}
+
+.p-warning {
+    color: #7d6f10;
 }
 
 .custom-label {

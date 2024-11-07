@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, SmallInteger, ForeignKey, Text, TIMESTAMP
+from sqlalchemy import Column, Integer, String, SmallInteger, ForeignKey, Text, TIMESTAMP, Date
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -10,7 +10,7 @@ class User(Base):
     id = Column(Integer, primary_key=True, index=True)
     first_name = Column(String(255), nullable=False)
     last_name = Column(String(255), nullable=False)
-    birth_date = Column(SmallInteger, nullable=False)
+    birth_date = Column(Date, nullable=False)
     gender_id = Column(Integer, ForeignKey("genders.id"), nullable=False)
     email = Column(Text, nullable=False)
     phone = Column(String(255), nullable=False)

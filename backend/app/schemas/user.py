@@ -1,12 +1,12 @@
 from pydantic import BaseModel
 from typing import Optional
-from datetime import datetime
+from datetime import datetime, date
 
 class User(BaseModel):
     id: int
     first_name: str
     last_name: str
-    birth_date: datetime
+    birth_date: date
     gender_id: int
     gender_name: str
     email: str
@@ -21,7 +21,7 @@ class User(BaseModel):
 class UserUpdateBody(BaseModel):
     first_name: str
     last_name: str
-    birth_date: datetime
+    birth_date: date
     gender_id: int
     email: str
     phone: str
@@ -34,7 +34,7 @@ class UserReadList(BaseModel):
     id: int
     first_name: str
     last_name: str
-    birth_date: datetime
+    birth_date: date
     gender: UserGender
     email: str
     phone: str
